@@ -27,4 +27,5 @@ require("lazy").setup({
   require("geekocean.plugins.null_ls"),
   -- require("geekocean.plugins.aicode"),
   require("geekocean.plugins.snippets"),
+  require("geekocean.plugins.flash"),
 })
