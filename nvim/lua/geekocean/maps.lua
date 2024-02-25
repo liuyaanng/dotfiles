@@ -33,7 +33,7 @@ keymap.set('v', 'p', 'pgvy')
 keymap.set('n', 'x', '"_x')
 keymap.set('v', 'y', '\"+y')
 
-keymap.set('i', 'jk', '<ESC>')
+keymap.set('i', 'jk', '<ESC><cmd>w<CR>')
 
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")

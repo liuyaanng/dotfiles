@@ -20,15 +20,22 @@ null_ls.setup {
       diagnostics_format = '[eslint] #{m}\n(#{c})'
     }),
     -- python
-    null_ls.builtins.formatting.autopep8,
-    null_ls.builtins.diagnostics.pycodestyle.with({
-      diagnostics_format = '[#{pycode}] #{m} (#{s})',
-    })
+    null_ls.builtins.formatting.black,
+    null_ls.builtins.diagnostics.ruff,
+    -- null_ls.builtins.diagnostics.pylint.with({
+    --   diagnostics_postprocess = function(diagnostic)
+    --     diagnostic.code = diagnostic.message_id
+    --   end,
+    -- }),
+    -- null_ls.builtins.formatting.autopep8,
+    -- null_ls.builtins.diagnostics.pycodestyle.with({
+    --   diagnostics_format = '[#{pycode}] #{m} (#{s})',
+    -- })
   },
   on_attach = function(client, bufnr)
-    if client.supports_method("textDocument/formatting") then
+    if client.supports_method("textdocument/formatting") then
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-      vim.api.nvim_create_autocmd("BufWritePre", {
+      vim.api.nvim_create_autocmd("bufwritepre", {
         group = augroup,
         buffer = bufnr,
         callback = function()
@@ -40,7 +47,7 @@ null_ls.setup {
 }
 
 vim.api.nvim_create_user_command(
-  'DisableLspFormatting',
+  'Disablelspformatting',
   function()
     vim.api.nvim_clear_autocmds({ group = augroup, buffer = 0 })
   end,

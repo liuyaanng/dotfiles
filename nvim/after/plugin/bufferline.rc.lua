@@ -43,6 +43,16 @@ local function close_current_buffer()
 end
 
 
-vim.keymap.set('n', 'R', '<Cmd>BufferLineCycleNext<CR>', {})
-vim.keymap.set('n', 'E', '<Cmd>BufferLineCyclePrev<CR>', {})
+local function save_and_next()
+  vim.api.nvim_command('w')
+  vim.api.nvim_command('BufferLineCycleNext')
+end
+
+local function save_and_prev()
+  vim.api.nvim_command('w')
+  vim.api.nvim_command('BufferLineCyclePrev')
+end
+
+vim.keymap.set('n', 'R', save_and_next, {})
+vim.keymap.set('n', 'E', save_and_prev, {})
 vim.keymap.set('n', '<leader>bc', close_current_buffer, {})

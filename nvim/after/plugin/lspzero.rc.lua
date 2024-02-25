@@ -17,6 +17,7 @@ if (not status_whichkey) then return end
 lsp_zero.on_attach(function(client, bufnr) -- see :help lsp-zero-keybindings
   -- to learn the available actions
   lsp_zero.default_keymaps({ buffer = bufnr })
+  lsp_zero.buffer_autoformat()
   -- Global keymapping
   local opts = { noremap = true, silent = true }
 
@@ -27,7 +28,7 @@ lsp_zero.on_attach(function(client, bufnr) -- see :help lsp-zero-keybindings
   vim.keymap.set('n', 'gt', '<Cmd>Lspsaga goto_type_definition<CR>', opts)
   vim.keymap.set('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   vim.keymap.set('n', 'gp', '<Cmd>Lspsaga peek_definition<CR>', opts)
-  vim.keymap.set('n', 'gr', '<Cmd>Lspsaga rename<CR>', opts)
+  vim.keymap.set('n', '<leader>gn', '<Cmd>Lspsaga rename<CR>', opts)
 
   -- code action
   vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
@@ -37,9 +38,11 @@ lsp_zero.set_sign_icons({
   error = "",
   -- error = "",
   warn = "",
-  hint = "",
+  hint = ' ',
+  -- hint = "",
   information = "",
-  other = "",
+  -- other = "",
+  other = "",
 })
 
 -- set up completion using nvim_cmp with LSP source
@@ -49,14 +52,15 @@ local capabilities = cmp.default_capabilities()
 lsp_zero.format_on_save({
   format_opts = {
     async = false,
-    -- timeout_ms = 10000,
+    timeout_ms = 10000,
   },
   servers = {
+    ['pyright'] = { 'py' },
     ['lua_ls'] = { 'lua' },
     ['tsserver'] = { 'javascript', 'typescript' },
-    ['pyright'] = { 'python' }
   }
 })
+
 -- lspsaga
 lspsaga.setup({
   ui = {
@@ -109,15 +113,10 @@ mason_lspconfig.setup({
     end,
     -- python
     pyright = function()
-      lspconfig.pyright.setup {}
+      lspconfig.pyright.setup {
+        filetypes = { "python" },
+        cmd = { "pyright-langserver", "--stdio" }
+      }
     end
   },
-})
-
-
-whichkey.register({
-  ["<leander>r"] = {
-    name = "+rename",
-    n = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Reanme" }
-  }
 })
