@@ -16,6 +16,8 @@ return {
     end,
   },
   {
+    -- npm install -g live-server
+    -- LiveServerInstall
     "aurum77/live-server.nvim",
     config = function()
       require("live_server").setup({
@@ -26,5 +28,18 @@ return {
         install_path = vim.fn.stdpath("config") .. "/live-server/",
       })
     end,
+    keys = {
+      {
+        "<leader>ls",
+        "<cmd>LiveServer<cr>",
+        desc = "live server toggle",
+      },
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    keys = {
+      { "<leader>lz", "<cmd>Lazy<cr>", desc = "lazy" },
+    },
   },
 }
