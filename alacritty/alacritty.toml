@@ -13,10 +13,10 @@ opacity = 0.8
 blur = true
 
 [font]
-normal = { family = "OperatorMono Nerd Font", style = "Book" } 
+normal = { family = "OperatorMono Nerd Font", style = "Regular" }
 bold = { style = "Bold"}
 italic = {style = "Italic"}
 bold_italic = {style = "Bold Italic"}
-offset = { x = 1, y = 0}
-size = 18
+offset = { x = 0, y = 0}
+size = 20
 builtin_box_drawing = true
