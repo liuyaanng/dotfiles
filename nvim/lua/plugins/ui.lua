@@ -10,8 +10,24 @@ return {
   {
     "akinsho/bufferline.nvim",
     keys = {
-      { "E", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer", mode = "n" },
-      { "R", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer", mode = "n" },
+      {
+        "E",
+        function()
+          vim.api.nvim_command("w")
+          vim.api.nvim_command("BufferLineCyclePrev")
+        end,
+        desc = "Prev buffer",
+        mode = "n",
+      },
+      {
+        "R",
+        function()
+          vim.api.nvim_command("w")
+          vim.api.nvim_command("BufferLineCycleNext")
+        end,
+        desc = "Next buffer",
+        mode = "n",
+      },
     },
   },
 }
