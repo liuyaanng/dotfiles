@@ -32,6 +32,23 @@ keymap.set("v", "y", '"+y')
 
 keymap.set("i", "jk", "<ESC>")
 
+keymap.set(
+  "i",
+  "jk",
+  'pumvisible() ? "<C-e><ESC>" : v:lua.check_buftype()',
+  { expr = true, noremap = true, silent = true }
+)
+
+function _G.check_buftype()
+  if vim.bo.buftype == "" then
+    -- It's a normal buffer, save and exit insert mode
+    return "<ESC>:w<CR>"
+  else
+    -- It's a special buffer, just exit insert mode without saving
+    return "<ESC>"
+  end
+end
+
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
