@@ -78,4 +78,8 @@ return {
       { "<leader>lz", "<cmd>Lazy<cr>", desc = "lazy" },
     },
   },
+  {
+    "wakatime/vim-wakatime",
+    lazy = false,
+  },
 }
