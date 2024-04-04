@@ -4,6 +4,8 @@ alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
+alt - p : yabai -m window --focus prev
+alt - n : yabai -m window --focus next
 
 # Moving windows 
 shift + alt - h : yabai -m window --warp west
@@ -39,8 +41,11 @@ shift + alt - f : yabai -m window --toggle native-fullscreen
 # toggle window split type
 alt - e : yabai -m window --toggle split
 
-# Restart Yabai
-shift + cmd + alt - r :
-    /usr/bin/env osascript <<< \
-        "display notification \"Restarting Yabai\" with title \"Yabai\""; \
-    launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+# focus windows
+alt - n : yabai -m window --focus next || yabai -m window --focus first
+alt - p : yabai -m window --focus prev || yabai -m window --focus last
+
+# Restart Yabai and skhd
+alt + shift - r : yabai --restart-service&&skhd --reload
+
+
