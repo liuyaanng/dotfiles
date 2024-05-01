@@ -8,6 +8,9 @@ return {
         "stylua",
         "luacheck",
         "css-lsp",
+        "tailwindcss-language-server",
+        "typescript-language-server",
+        "css-lsp",
       })
     end,
   },

@@ -6,7 +6,7 @@ options=(
 	hidpi=off
 	active_color=0xff832828
 	inactive_color=0xff518581
-	blacklist='IINA,Finder,访达,Calendar,日历,System Preferences,系统偏好设置,微信,WeChat,Music,音乐,System Settings,'
+	blacklist='IINA,Finder,访达,Calendar,日历,System Preferences,系统偏好设置,微信,WeChat,Music,音乐,System Settings,App Store,应用商店,OpenAI Translator,Bob,Reminders'
 )
 
 borders "${options[@]}"

@@ -9,7 +9,7 @@ return {
       {
         "honza/vim-snippets",
         config = function()
-          require("luasnip.loaders.from_snipmate").lazy_load()
+          require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/lua/my-snippets" })
         end,
       },
       {
@@ -77,12 +77,11 @@ return {
       opts.sorting = {
         priority_weight = 2,
         comparators = {
-          require("copilot_cmp.comparators").prioritize,
-
           -- Below is the default comparitor list and order for nvim-cmp
           cmp.config.compare.offset,
           -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
           cmp.config.compare.exact,
+          require("copilot_cmp.comparators").prioritize,
           cmp.config.compare.score,
           cmp.config.compare.recently_used,
           cmp.config.compare.locality,

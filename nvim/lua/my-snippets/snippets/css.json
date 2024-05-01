@@ -1,0 +1,6 @@
+{
+  "add tailwindcss base config": {
+    "prefix": "tailcss",
+    "body": ["@tailwind base;", "@tailwind components;", "@tailwind utilities;"]
+  }
+}

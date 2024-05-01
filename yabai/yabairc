@@ -28,7 +28,6 @@ yabai -m config window_shadow off
 
 yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 0.9
-
 yabai -m config auto_balance off
 yabai -m config split_ratio 0.5
 
@@ -39,18 +38,19 @@ yabai -m config window_border off
 borders &
 
 # -- rules --
-yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title=".*" manage=off
 yabai -m rule --add label="Settings" app="^System Settings$" title=".*" manage=off
 yabai -m rule --add label="App Store" app="^App Store$" manage=off
 yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
 yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
+yabai -m rule --add label="Reminders" app="^Reminders$" manage=off space=2
 yabai -m rule --add label="iina" app="^IINA$" manage=off
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add label="System Information" app="System Information" title="System Information" manage=off
 yabai -m rule --add label="Raycast" app="Raycast" manage=off
-yabai -m rule --add label="wechat" app="^WeChat$" manage=off
-yabai -m rule --add label="musicapp" app="^Music$" manage=off space=2
+yabai -m rule --add label="wechat" app="^WeChat$" manage=off space=3
+yabai -m rule --add label="musicapp" app="^Music$" manage=off space=3
 
 yabai -m signal --add event=window_destroyed action="yabai -m window --focus mouse"
 

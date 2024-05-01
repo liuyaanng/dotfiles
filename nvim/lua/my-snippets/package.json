@@ -1,0 +1,27 @@
+{
+  "name": "geekocean-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "all",
+        "path": "./snippets/all.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "lua",
+        "path": "./snippets/lua.json"
+      },
+      {
+        "language": "css",
+        "path": "./snippets/css.json"
+      },
+      {
+        "language": "json",
+        "path": "./snippets/json.json"
+      }
+    ]
+  }
+}
