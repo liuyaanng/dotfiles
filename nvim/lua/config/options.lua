@@ -19,7 +19,8 @@ option.scrolloff = 10
 option.backupskip = { "/tmp/*", "/private/tmp/*" }
 option.inccommand = "split"
 option.ignorecase = true
-option.wrap = false -- No Warp Lines
+option.wrap = true -- No Warp Lines
+option.linebreak = true
 option.backspace = { "start", "eol", "indent" }
 option.path:append({ "**" }) -- Finding Files - Serach down into subfolders
 option.wildignore:append({ "*/node_modules/*, *.bak, *.swp, tmp/" })
