@@ -2,6 +2,7 @@ return {
   {
     "folke/noice.nvim",
     opts = function(_, opts)
+      -- hidden no information available
       table.insert(opts.routes, {
         filter = {
           event = "notify",
@@ -9,6 +10,23 @@ return {
         },
         opts = { skip = true },
       })
+
+      -- hidden written information
+      table.insert(opts.routes, {
+        filter = {
+          event = "msg_show",
+          kind = "",
+          find = "written",
+        },
+        opts = { skip = true },
+      })
+
+      -- show @recording message
+      table.insert(opts.routes, {
+        view = "notify",
+        filter = { event = "msg_showmode" },
+      })
+
       local focused = true
       vim.api.nvim_create_autocmd("FocusGained", {
         callback = function()
