@@ -34,9 +34,15 @@ shift + cmd - l : \
 shift + alt - x : yabai -m window --toggle float;\
                   yabai -m window --grid 4:4:1:1:2:2
 
+# change to float 
+shift + alt - f : yabai -m config layout float
+
+# change to bsp 
+shift + alt - b : yabai -m config layout bsp
+
 # Make window native fullscreen
 alt - f         : yabai -m window --toggle zoom-fullscreen
-shift + alt - f : yabai -m window --toggle native-fullscreen
+# shift + alt - f : yabai -m window --toggle native-fullscreen
 
 # toggle window split type
 alt - e : yabai -m window --toggle split

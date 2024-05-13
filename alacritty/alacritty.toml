@@ -6,7 +6,7 @@ live_config_reload = true
 
 
 [window]
-padding = {x = 5, y = 5}
+padding = {x = 10, y = 5}
 dynamic_padding = true
 decorations = "Buttonless"
 opacity = 0.85
