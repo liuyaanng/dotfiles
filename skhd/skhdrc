@@ -52,7 +52,7 @@ alt - n : yabai -m window --focus next || yabai -m window --focus first
 alt - p : yabai -m window --focus prev || yabai -m window --focus last
 
 # Restart Yabai and skhd
-alt + shift - r : yabai --restart-service&&skhd --reload
+alt + shift - r : yabai --restart-service&&skhd --reload&&brew services restart borders 
 
 
 # create space 
