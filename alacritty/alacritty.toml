@@ -18,5 +18,5 @@ bold = { style = "Bold"}
 italic = {style = "Italic"}
 bold_italic = {style = "Bold Italic"}
 offset = { x = 0, y = 0}
-size = 20
+size = 25
 builtin_box_drawing = true

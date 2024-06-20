@@ -31,3 +31,4 @@ option.listchars = "tab:›·,trail:▫"
 vim.scriptencoding = "utf-8"
 option.encoding = "utf-8"
 option.fileencoding = "utf-8"
+-- vim.cmd([[colorscheme tokyonight]])

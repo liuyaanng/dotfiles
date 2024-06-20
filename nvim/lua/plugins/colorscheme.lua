@@ -4,8 +4,8 @@ return {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
     config = function()
-      vim.o.background = "light"
-      vim.cmd("colorscheme gruvbox")
+      -- vim.o.background = "light"
+      -- vim.cmd("colorscheme gruvbox")
       -- vim.cmd("let g:gruvbox_transparent_bg = 1")
       -- vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
     end,
@@ -14,7 +14,6 @@ return {
       terminal_colors = true, -- add neovim terminal colors
       undercurl = true,
       underline = true,
-      bold = true,
       italic = {
         strings = true,
         emphasis = true,
@@ -33,6 +32,20 @@ return {
       overrides = {},
       dim_inactive = false,
       transparent_mode = true,
+    },
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    priority = 1000,
+    opts = {
+      style = "moon",
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "tokyonight",
     },
   },
 }

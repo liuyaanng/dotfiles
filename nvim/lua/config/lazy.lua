@@ -1,4 +1,3 @@
-local colorscheme = require("plugins.colorscheme")
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
@@ -13,74 +12,8 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
-      opts = {
-        colorscheme = "gruvbox",
-        icons = {
-          misc = {
-            dots = "󰇘",
-          },
-          dap = {
-            Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
-            Breakpoint = " ",
-            BreakpointCondition = " ",
-            BreakpointRejected = { " ", "DiagnosticError" },
-            LogPoint = ".>",
-          },
-          diagnostics = {
-            Error = " ",
-            Warn = " ",
-            Hint = " ",
-            Info = " ",
-          },
-          git = {
-            added = " ",
-            modified = " ",
-            removed = " ",
-          },
-          kinds = {
-            Array = " ",
-            Boolean = "󰨙 ",
-            Class = " ",
-            Codeium = "󰘦 ",
-            Color = " ",
-            Control = " ",
-            Collapsed = " ",
-            Constant = "󰏿 ",
-            Constructor = " ",
-            Copilot = " ",
-            Enum = " ",
-            EnumMember = " ",
-            Event = " ",
-            Field = " ",
-            File = " ",
-            Folder = " ",
-            Function = "󰊕 ",
-            Interface = " ",
-            Key = " ",
-            Keyword = " ",
-            Method = "󰊕 ",
-            Module = " ",
-            Namespace = "󰦮 ",
-            Null = " ",
-            Number = "󰎠 ",
-            Object = " ",
-            Operator = " ",
-            Package = " ",
-            Property = " ",
-            Reference = " ",
-            Snippet = "󰐝 ",
-            String = " ",
-            Struct = "󰆼 ",
-            TabNine = "󰏚 ",
-            Text = "󰉿 ",
-            TypeParameter = " ",
-            Unit = " ",
-            Value = " ",
-            Variable = "󰀫 ",
-          },
-        },
-      },
     },
+    { import = "plugins" },
     -- import any extras modules here
     -- { import = "lazyvim.plugins.extras.editor.symbols-outline" },
     { import = "lazyvim.plugins.extras.linting.eslint" },
@@ -97,7 +30,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.coding.copilot-chat" },
     { import = "lazyvim.plugins.extras.coding.yanky" },
     { import = "lazyvim.plugins.extras.coding.luasnip" },
-    { import = "plugins" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -108,6 +40,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
+  install = { colorscheme = { "gruvbox", "tokyonight" }, missing = true },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {
