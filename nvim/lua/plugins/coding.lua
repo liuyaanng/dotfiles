@@ -194,4 +194,31 @@ return {
       position = "right",
     },
   },
+  {
+    "gaelph/logsitter.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("logsitter").setup({
+        path_format = "default",
+        prefix = "🚀 👉",
+        separator = "👉",
+      })
+    end,
+    keys = {
+      {
+        "<leader>lg",
+        function()
+          require("logsitter").log()
+        end,
+        desc = "Logsitter",
+      },
+      {
+        "<leader>lv",
+        function()
+          require("logsitter").log_visual()
+        end,
+        desc = "Logsitter",
+      },
+    },
+  },
 }
