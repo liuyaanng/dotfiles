@@ -5,7 +5,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.o.background = "dark" -- light or dark
+      vim.o.background = "light" -- light or dark
       -- vim.cmd("colorscheme gruvbox")
       -- vim.cmd("let g:gruvbox_transparent_bg = 1")
       -- vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
@@ -47,7 +47,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "gruvbox",
     },
   },
 }
