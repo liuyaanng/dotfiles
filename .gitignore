@@ -1,2 +1,3 @@
 .DS_Store
 nvim/node_modules/
+./lazygit/state.yml
