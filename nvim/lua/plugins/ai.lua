@@ -8,7 +8,7 @@ return {
         model = "gpt-4",
         auto_insert_mode = true,
         show_help = false,
-        question_header = "  Liuyang ",
+        question_header = "  Leon",
         answer_header = "  Copilot ",
         window = {
           layout = "horizontal",

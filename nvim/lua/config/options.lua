@@ -33,4 +33,4 @@ option.encoding = "utf-8"
 option.fileencoding = "utf-8"
 
 -- python3
-global.python3_host_prog = "/opt/miniconda3/envs/llm/bin/python3"
+-- global.python3_host_prog = "/opt/miniconda3/envs/llm/bin/python3"

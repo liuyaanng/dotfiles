@@ -16,20 +16,30 @@ require("lazy").setup({
     { import = "plugins" },
     -- import any extras modules here
     -- { import = "lazyvim.plugins.extras.editor.symbols-outline" },
-    { import = "lazyvim.plugins.extras.linting.eslint" },
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
+    -- lang
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
     { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.lang.toml" },
+    -- coding
+    { import = "lazyvim.plugins.extras.linting.eslint" },
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
+    { import = "lazyvim.plugins.extras.coding.mini-surround" },
+    { import = "lazyvim.plugins.extras.coding.yanky" },
+    { import = "lazyvim.plugins.extras.coding.luasnip" },
+    { import = "lazyvim.plugins.extras.coding.neogen" },
+
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
+
+    { import = "lazyvim.plugins.extras.editor.dial" },
+    { import = "lazyvim.plugins.extras.editor.inc-rename" },
+
     -- import/override with your plugins
-    { import = "lazyvim.plugins.extras.coding.copilot" },
-    { import = "lazyvim.plugins.extras.coding.copilot-chat" },
-    { import = "lazyvim.plugins.extras.coding.yanky" },
-    { import = "lazyvim.plugins.extras.coding.luasnip" },
+    { import = "lazyvim.plugins.extras.ai.copilot" },
+    { import = "lazyvim.plugins.extras.ai.copilot-chat" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -40,7 +50,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "gruvbox", "tokyonight" }, missing = true },
+  install = { colorscheme = { "tokyonight", "gruvbox" }, missing = true },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {

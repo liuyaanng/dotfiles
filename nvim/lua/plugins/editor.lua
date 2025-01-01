@@ -1,25 +1,5 @@
 return {
   {
-    "telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
-    },
-  },
-  -- {
-  --   "norcalli/nvim-colorizer.lua",
-  --   config = function()
-  --     require("colorizer").setup({
-  --       "*",
-  --       css = { css = true },
-  --     })
-  --   end,
-  -- },
-  --
-  {
     "NvChad/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup({
@@ -38,7 +18,7 @@ return {
           mode = "background", -- Set the display mode.
           -- Available methods are false / true / "normal" / "lsp" / "both"
           -- True is same as normal
-          tailwind = false, -- Enable tailwind colors
+          tailwind = true, -- Enable tailwind colors
           -- parsers can contain values used in |user_default_options|
           sass = { enable = false, parsers = { "css" } }, -- Enable sass colors
           virtualtext = "■",
@@ -50,27 +30,6 @@ return {
         buftypes = {},
       })
     end,
-  },
-  {
-    -- npm install -g live-server
-    -- LiveServerInstall
-    "aurum77/live-server.nvim",
-    config = function()
-      require("live_server").setup({
-        port = 8080,
-        browser_command = "min", -- Empty string starts up with default browser
-        quiet = false,
-        no_css_inject = false, -- Disables css injection if true, might be useful when testing out tailwindcss
-        install_path = vim.fn.stdpath("config") .. "/live-server/",
-      })
-    end,
-    keys = {
-      {
-        "<leader>ls",
-        "<cmd>LiveServer<cr>",
-        desc = "live server toggle",
-      },
-    },
   },
   {
     "LazyVim/LazyVim",
@@ -144,6 +103,7 @@ return {
       { "<leader>lz", "<cmd>Lazy<cr>", desc = "lazy" },
     },
   },
+
   {
     "wakatime/vim-wakatime",
     lazy = false,

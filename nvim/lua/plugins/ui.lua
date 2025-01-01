@@ -76,6 +76,17 @@ return {
     },
   },
   {
+    "echasnovski/mini.animate",
+    opts = {
+      open = {
+        enable = false,
+      },
+      close = {
+        enable = false,
+      },
+    },
+  },
+  {
     "akinsho/bufferline.nvim",
     keys = {
       {
@@ -96,14 +107,6 @@ return {
         desc = "Next buffer",
         mode = "n",
       },
-    },
-  },
-  {
-    "folke/zen-mode.nvim",
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
     },
   },
 }
