@@ -99,9 +99,6 @@ return {
         },
       },
     },
-    keys = {
-      { "<leader>lz", "<cmd>Lazy<cr>", desc = "lazy" },
-    },
   },
 
   {
