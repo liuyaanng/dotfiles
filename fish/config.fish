@@ -15,8 +15,10 @@ alias la "ls -A"
 alias ll "ls -l"
 alias lla "ll -A"
 alias cc "ccusage blocks --live"
-alias ide='tmux split-window -h -d -l 25%; tmux split-window -v -l 20%; tmux split-window -h -l 50%'
-
+# alias ide='tmux split-window -h -d -l 25%; tmux split-window -v -l 20%; tmux split-window -h -l 50%'
+alias ide='tmux split-window -v -l 20%; tmux split-window -h -l 50%'
+alias dev='npm run dev'
+alias build='npm run build'
 
 # proxy 
 set -x https_proxy http://127.0.0.1:7890

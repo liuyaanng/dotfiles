@@ -2,14 +2,61 @@ return {
   -- better increment and decrement
   {
     "monaqa/dial.nvim",
-    -- stylua: ignore
     keys = {
-      { "<C-a>", function() return require("dial.map").inc_normal() end, expr = true, desc = "Increment" },
-      { "<C-x>", function() return require("dial.map").dec_normal() end, expr = true, desc = "Decrement" },
+      {
+        "<C-a>",
+        function()
+          return require("dial.map").inc_normal()
+        end,
+        expr = true,
+        desc = "Increment",
+      },
+      {
+        "<C-x>",
+        function()
+          return require("dial.map").dec_normal()
+        end,
+        expr = true,
+        desc = "Decrement",
+      },
+      {
+        "g<C-a>",
+        function()
+          return require("dial.map").inc_gnormal()
+        end,
+        expr = true,
+        desc = "Increment (visual)",
+      },
+      {
+        "g<C-x>",
+        function()
+          return require("dial.map").dec_gnormal()
+        end,
+        expr = true,
+        desc = "Decrement (visual)",
+      },
+      {
+        "<C-a>",
+        function()
+          return require("dial.map").inc_visual()
+        end,
+        expr = true,
+        desc = "Increment",
+        mode = "v",
+      },
+      {
+        "<C-x>",
+        function()
+          return require("dial.map").dec_visual()
+        end,
+        expr = true,
+        desc = "Decrement",
+        mode = "v",
+      },
     },
-    config = function()
+    opts = function()
       local augend = require("dial.augend")
-      require("dial.config").augends:register_group({
+      return {
         default = {
           augend.integer.alias.decimal,
           augend.integer.alias.hex,
@@ -17,38 +64,66 @@ return {
           augend.constant.alias.bool,
           augend.semver.alias.semver,
           augend.constant.new({ elements = { "let", "const" } }),
+          augend.constant.new({ elements = { "&&", "||" }, word = false, cyclic = true }),
+          augend.constant.new({ elements = { "and", "or" } }),
+          augend.constant.new({ elements = { "true", "false" } }),
+          augend.constant.new({ elements = { "True", "False" } }),
         },
-      })
+      }
+    end,
+    config = function(_, opts)
+      require("dial.config").augends:register_group(opts)
     end,
   },
   -- better log
   {
-    "gaelph/logsitter.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    "Goose97/timber.nvim",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
     config = function()
-      require("logsitter").setup({
-        path_format = "default",
-        prefix = "🚀 👉",
-        separator = "👉",
+      require("timber").setup({
+        -- Configuration here, or leave empty to use defaults
+        log_templates = {
+          default = {
+            javascript = [[console.log("%log_marker LOG %log_target ON LINE %filename:%line_number", %log_target)]],
+            typescript = [[console.log("%log_marker LOG %log_target ON LINE %filename:%line_number", %log_target)]],
+            jsx = [[console.log("%log_marker LOG %log_target ON LINE %filename:%line_number", %log_target)]],
+            tsx = [[console.log("%log_marker LOG %log_target ON LINE %filename:%line_number", %log_target)]],
+          },
+        },
+        log_marker = "🚀 → ",
       })
     end,
-    keys = {
-      {
-        "<leader>lg",
-        function()
-          require("logsitter").log()
-        end,
-        desc = "Logsitter",
-      },
-      {
-        "<leader>lv",
-        function()
-          require("logsitter").log_visual()
-        end,
-        desc = "Logsitter",
-      },
-    },
   },
+
+  -- better log (disabled due to incompatibility with nvim-treesitter)
+  -- {
+  --   "gaelph/logsitter.nvim",
+  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
+  --   ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "lua", "python" },
+  --   keys = {
+  --     {
+  --       "<leader>lg",
+  --       function()
+  --         require("logsitter").log()
+  --       end,
+  --       desc = "Add log statement",
+  --     },
+  --     {
+  --       "<leader>lv",
+  --       function()
+  --         require("logsitter").log_visual()
+  --       end,
+  --       desc = "Add log statement (visual)",
+  --       mode = "v",
+  --     },
+  --   },
+  --   opts = {
+  --     path_format = "default",
+  --     prefix = "🚀",
+  --     separator = "→",
+  --   },
+  -- },
   {
     "saghen/blink.cmp",
     enabled = true,
