@@ -7,3 +7,12 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   pattern = "*",
   command = "set nopaste",
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "leetcode.nvim",
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+    vim.opt_local.textwidth = 0
+  end,
+})

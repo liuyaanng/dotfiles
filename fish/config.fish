@@ -19,6 +19,7 @@ alias cc "ccusage blocks --live"
 alias ide='tmux split-window -v -l 20%; tmux split-window -h -l 50%'
 alias dev='npm run dev'
 alias build='npm run build'
+alias lc='vim leetcode.nvim'
 
 # proxy 
 set -x https_proxy http://127.0.0.1:7890
