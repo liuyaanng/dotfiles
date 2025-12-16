@@ -95,35 +95,6 @@ return {
       })
     end,
   },
-
-  -- better log (disabled due to incompatibility with nvim-treesitter)
-  -- {
-  --   "gaelph/logsitter.nvim",
-  --   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  --   ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "lua", "python" },
-  --   keys = {
-  --     {
-  --       "<leader>lg",
-  --       function()
-  --         require("logsitter").log()
-  --       end,
-  --       desc = "Add log statement",
-  --     },
-  --     {
-  --       "<leader>lv",
-  --       function()
-  --         require("logsitter").log_visual()
-  --       end,
-  --       desc = "Add log statement (visual)",
-  --       mode = "v",
-  --     },
-  --   },
-  --   opts = {
-  --     path_format = "default",
-  --     prefix = "🚀",
-  --     separator = "→",
-  --   },
-  -- },
   {
     "saghen/blink.cmp",
     enabled = true,

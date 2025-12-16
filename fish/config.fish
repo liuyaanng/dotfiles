@@ -21,10 +21,6 @@ alias dev='npm run dev'
 alias build='npm run build'
 alias lc='vim leetcode.nvim'
 
-# proxy 
-set -x https_proxy http://127.0.0.1:7890
-set -x http_proxy http://127.0.0.1:7890
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 if test -f /opt/anaconda3/bin/conda
@@ -37,3 +33,7 @@ else
     end
 end
 # <<< conda initialize <<<
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
